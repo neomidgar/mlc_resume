@@ -31,6 +31,14 @@ define ECHO_OK
 endef
 
 
+.PHONY: pre
+pre:
+	$(call ECHO_BUILD,"\n** Building $@.")
+
+	cd $(UI_DIR) && npm i
+
+	$(call ECHO_OK,"\n** Finished building $@.")
+
 .PHONY: dev
 dev:
 	$(call ECHO_BUILD,"\n** Building $@.")
