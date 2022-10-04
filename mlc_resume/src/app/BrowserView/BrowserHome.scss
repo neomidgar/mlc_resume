@@ -1,0 +1,22 @@
+
+@import "../BrowserGlobal.scss";
+
+.BrowserHome
+{
+    position: absolute;
+    top: 0vh;
+    width: 100vw;
+    height: 100vh;
+}
+
+.BrowserHomeThemeDark
+{
+    background-color: $background-color-dark;
+    color: white;
+}
+
+.BrowserHomeThemeLight
+{
+    background-color: $background-color-light;
+    color: black;
+}

@@ -1,0 +1,106 @@
+
+
+@import '../../BrowserGlobal.scss';
+
+.BrowserBanner
+{
+    position: absolute;
+    top: 0vh;
+    height: 10vh;
+    width: 100vw;
+}
+
+.BrowserBannerThemeDark
+{
+    background-color: $background-color-dark;
+}
+
+.BrowserBannerThemeLight
+{
+    background-color: $background-color-light;
+}
+
+.BrowserBannerThemeToggle
+{
+    position: absolute;
+    top: 2vh;
+    right: 5vw;
+    width: 5%;
+    height: 5%;
+}
+
+.BrowserBannerThemeToggleThemeDark
+{
+    background-color: $background-color-dark;
+}
+
+.BrowserBannerThemeToggleThemeLight
+{
+    background-color: $background-color-light;
+}
+
+.BrowserBannerNavWrapper
+{
+    position: absolute;
+    top: 5vh;
+    left: 25vw;
+    width: 50vw;
+    height: 10vh;
+    
+}
+
+.BrowserBannerNavItem
+{
+    float: left;
+    width: calc( 50vw / 4 );
+    text-align: center;
+}
+
+.BrowserBannerNavText
+{
+    display: inline-block;
+    position: relative;
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.BrowserBannerNavTextThemeDark:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: white;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.BrowserBannerNavTextThemeLight:after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(0);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+    transform-origin: bottom right;
+    transition: transform 0.25s ease-out;
+}
+
+.BrowserBannerNavText:hover:after {
+    transform: scaleX(1);
+    transform-origin: bottom left;
+}
+
+.BrowserBannerNavItemThemeDark
+{
+    color: $color-dark;
+}
+
+.BrowserBannerNavItemThemeLight
+{
+    color: $color-light;
+}
