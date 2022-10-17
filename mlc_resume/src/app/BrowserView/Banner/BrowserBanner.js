@@ -30,7 +30,7 @@ class BrowserBanner extends React.Component
 
         return(
             <div>
-                <div className={ "BrowserBanner BrowserBanner" + this.props.theme }>
+                <div id={"BrowserBanner" + this.props.theme} className={ "BrowserBanner BrowserBanner" + this.props.theme }>
 
                     <div className="BrowserBannerNavWrapper">
                         <div className={ "BrowserBannerNavItem BrowserBannerNavItem" + this.props.theme } style={theme}>

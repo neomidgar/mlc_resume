@@ -1,5 +1,5 @@
 
-import React, { useEffect } from "react";
+import React from "react";
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { CSSTransition, TransitionGroup }from 'react-transition-group';
 
@@ -61,9 +61,9 @@ class BrowserHome extends React.Component
                     >
 
                         <Routes>
-                            <Route exact path={"/"} element={ <BrowserResume /> } />
-                            <Route exact path={ROUTE_RESUME}  element={ <BrowserResume /> } />
-                            <Route exact path={ROUTE_HISTORY} element={ <BrowserHistory /> } />
+                            <Route exact path={"/"} element={ <BrowserResume theme={this.props.theme} /> } />
+                            <Route exact path={ROUTE_RESUME}  element={ <BrowserResume theme={this.props.theme} /> } />
+                            <Route exact path={ROUTE_HISTORY} element={ <BrowserHistory theme={this.props.theme} /> } />
                         </Routes>
 
                     </CSSTransition>

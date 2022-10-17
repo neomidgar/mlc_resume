@@ -1,0 +1,213 @@
+
+@import "../BrowserGlobal.scss";
+
+
+.BrowserResume
+{
+    position: absolute;
+    top: 10vh;
+    width: 100vw;
+    height: 90vh;
+    overflow-y: scroll;
+    touch-action: none;
+}
+
+.BrowserResumeMeWrapper
+{
+    float: left;
+    width: 49vw;
+    height: 50vh;
+}
+
+.BrowserResumeMe
+{
+    margin-top: 15vw;
+    margin-left: 10vw;
+    display: inline-block;
+    width: 40vw;
+    height: 10vh;
+    font-size: 5em;
+    animation: AnimResMe ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    opacity: 0;
+}
+
+@keyframes AnimResMe 
+{
+    0% 
+    {
+        opacity: 0;
+        margin-top: 15vw;
+    }
+    100% 
+    {
+        opacity: 1;
+        margin-top: 10vw;
+     }
+}
+
+.BrowserResumeAbout
+{
+    margin-top: 15vw;
+    margin-left: 10vw;
+    display: inline-block;
+    width: 40vw;
+    height: 15vh;
+    font-size: 2.5em;
+    animation: AnimResAbout ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+    opacity: 0;
+}
+
+@keyframes AnimResAbout 
+{
+    0% 
+    {
+        opacity: 0;
+        margin-top: 5vh;
+    }
+    100% 
+    {
+        opacity: 1;
+        margin-top: 0vh;
+     }
+}
+
+.BrowserResumeStatement
+{
+    float: left;
+    width: 40vw;
+    height: 40vh;
+    margin-top: 25vh;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    font-size: 2em;
+    animation: AnimResStatement ease 1.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 1.5s;
+    opacity: 0;
+}
+
+@keyframes AnimResStatement 
+{
+    0% 
+    {
+        opacity: 0;
+        margin-left: 15vh;
+    }
+    100% 
+    {
+        opacity: 1;
+        margin-left: 5vh;
+     }
+}
+
+.BrowserResumeSkills
+{
+    float: left;
+    margin-top: 40vh;
+    width: 100vw;
+    height: 100vh;
+}
+
+.BrowserResumeSkillsThemeDark
+{
+    background-color: $background-color-offset-dark;
+}
+
+.BrowserResumeSkillsThemeLight
+{
+    background-color: $background-color-offset-light;
+}
+
+.BrowserResumeSkillsWrapper
+{
+    float: left;
+    width: 48vw;
+}
+
+.BrowserResumeSkillsText
+{
+    float: left;
+    margin-top: 5vh;
+    margin-left: 7.5vw;
+    width: 40vw;
+    font-size: 2em;
+}
+
+.BrowserResumeSkillsTextThemeDark
+{
+    color: blue;
+}
+
+.BrowserResumeSkillsProText
+{
+    float: left;
+    margin-top: 5vh;
+    margin-left: 3vw;
+    width: 40vw;
+    height: 10vh;
+    line-height: 5vh;
+    font-size: 2em;
+}
+
+.BrowserResumeSkillsText2
+{
+    float: left;
+    margin-top: 5vh;
+    margin-left: 7.5vw;
+    width: 38vw;
+    height: 20vh;
+    font-size: 2em;
+}
+
+.BrowserResumeSkillsImgWrapper
+{
+    position: relative;
+    left: 48vw;
+    top: -110vh;
+    width: 50vw;
+    z-index: 1;
+    box-shadow: 13px 21px 50px -4px rgba(0,0,0,0), 9px -9px 16px -2px rgba(0,0,0,0.86);
+    opacity: 0;
+    transition: opacity 0.5s linear;  
+}
+
+.BrowserResumeSkillsImgWrapperAnimation
+{
+    opacity: 1;
+}
+
+.BrowserResumeSkillsImg
+{
+    max-width: 100%;
+    height: auto;
+}
+
+.BrowserResumeSkillsIconRow1
+{
+    margin-top: 62.5vh;
+    width: 100vw;
+    height: 10vh;
+    transition: transform 2s ease-out;
+}
+
+.BrowserResumeSkillsIconRow2
+{
+    margin-top: 10vh;
+    width: 100vw;
+    height: 10vh;
+    transition: transform 2s ease-out;
+}
+
+.ResumeSkillIcon
+{
+    float: left;
+    margin-left: 7.5vw;
+    width: 5vw;
+    height: 5vw;
+}
