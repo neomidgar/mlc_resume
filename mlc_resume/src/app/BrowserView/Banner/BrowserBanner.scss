@@ -36,6 +36,46 @@
     height: 4vh;
 }
 
+.BrowserBannerMLC
+{
+    margin-left: 2.5vw;
+    margin-top: 2.5vh;
+    float: left;
+    line-height: 5vh;
+    text-shadow: 3px 5px 2px #000000;
+}
+
+.BrowserBannerM
+{
+    font-size: 4em;
+    float: left;
+    margin-right: 0.3vw;
+    color: rgb(29, 106, 168);
+}
+
+.BrowserBannerL
+{
+    font-size: 4em;
+    float: left;
+    margin-right: 0.2vw;
+    color: #ff422a;
+}
+
+.BrowserBannerC
+{
+    font-size: 4em;
+    float: left;
+    margin-right: 1vw;
+    color: rgb(89, 255, 0);
+}
+
+.BrowserBannerResume
+{
+    font-size: 2em;
+    float: left;
+    margin-right: 1vw;
+}
+
 .BrowserBannerThemeToggleThemeDark
 {
     background-color: $background-color-dark;
@@ -69,6 +109,8 @@
     position: relative;
     font-size: 2em;
     cursor: pointer;
+    transition: color 1s;
+    text-shadow: 3px 5px 2px #000000;
 }
 
 .BrowserBannerNavTextThemeDark:after {
@@ -110,4 +152,9 @@
 .BrowserBannerNavItemThemeLight
 {
     color: $color-light;
+}
+
+.RouteSelected
+{
+    color: #ff422a;
 }

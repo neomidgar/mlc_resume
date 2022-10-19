@@ -20,14 +20,7 @@ export function SmoothScroll( el, e )
         {
             mulitplier += 1;
             delta       = e.wheelDeltaY * -mulitplier;
-            console.log("hit!")
         }
-        else
-        {
-            console.log("NOT hit!")
-        }
-
-        clearInterval( ScrollTimeout );
 
         ScrollTimeout = setTimeout( ()=> 
         {

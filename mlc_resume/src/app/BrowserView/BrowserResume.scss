@@ -8,7 +8,7 @@
     top: 10vh;
     width: 100vw;
     height: 90vh;
-    overflow-y: scroll;
+    overflow: hidden;
     touch-action: none;
 }
 
@@ -31,6 +31,7 @@
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     opacity: 0;
+    text-shadow: 3px 5px 2px #000000;
 }
 
 @keyframes AnimResMe 
@@ -60,6 +61,7 @@
     animation-fill-mode: forwards;
     animation-delay: 1s;
     opacity: 0;
+    text-shadow: 3px 5px 2px #000000;
 }
 
 @keyframes AnimResAbout 
@@ -90,6 +92,7 @@
     animation-fill-mode: forwards;
     animation-delay: 1.5s;
     opacity: 0;
+    text-shadow: 3px 5px 2px #000000;
 }
 
 @keyframes AnimResStatement 
@@ -137,6 +140,7 @@
     margin-left: 7.5vw;
     width: 40vw;
     font-size: 2em;
+    overflow: visible;
 }
 
 .BrowserResumeSkillsTextThemeDark
@@ -153,6 +157,8 @@
     height: 10vh;
     line-height: 5vh;
     font-size: 2em;
+    overflow: visible;
+    color:#ff422a;
 }
 
 .BrowserResumeSkillsText2
@@ -192,15 +198,15 @@
 {
     margin-top: 62.5vh;
     width: 100vw;
-    height: 10vh;
+    height: 15vh;
     transition: transform 2s ease-out;
 }
 
 .BrowserResumeSkillsIconRow2
 {
-    margin-top: 10vh;
+    margin-top: 5vh;
     width: 100vw;
-    height: 10vh;
+    height: 15vh;
     transition: transform 2s ease-out;
 }
 
@@ -210,4 +216,68 @@
     margin-left: 7.5vw;
     width: 5vw;
     height: 5vw;
+}
+
+.BrowserResumeSoftSkillsWrapper
+{
+    margin-top: -40vh;
+    width: 100vw;
+    height: fit-content;
+}
+
+.BrowserResumeContainer
+{
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.BrowserResumeTeamworkImg
+{
+    margin-left: 5vw;
+    max-width: 44.5vw;
+    height: auto;
+    box-shadow: 13px 21px 50px -4px rgba(0,0,0,0), 9px -9px 16px -2px rgba(0,0,0,0.86);
+}
+
+.BrowserResumeTeamworkText
+{
+    width: 44.5vw;
+    height: inherit;
+    text-align: center;
+    font-size: 4em;
+    margin: auto;
+    overflow: visible;
+    text-shadow: 3px 5px 2px #000000;
+}
+
+.BrowserResumeIndependentImg
+{
+    max-width: 44.5vw;
+    height: auto;
+    box-shadow: 13px 21px 50px -4px rgba(0,0,0,0), 9px -9px 16px -2px rgba(0,0,0,0.86);
+}
+
+.BrowserResumeIndependentText
+{
+    margin-left: 5vw;
+    width: 50vw;
+    height: inherit;
+    text-align: center;
+    font-size: 4em;
+    margin: auto;
+    overflow: visible;
+    text-shadow: 3px 5px 2px #000000;
+}
+
+.BrowserResumeExperience
+{
+    margin-top: 5vh;
+    width: 100vw;
+    height: 50vh;
+    line-height: 50vh;
+    text-align: center;
+    font-size: 4em;
+    background-color: #ff422a;
+    text-shadow: 3px 3px 3px #000000;
 }

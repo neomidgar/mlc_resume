@@ -42,6 +42,8 @@ class BrowserHome extends React.Component
     {
         console.log("redirect", r, this.props);
 
+        this.setState({ route: r });
+
         this.props.router.navigate(r);
     }
 
@@ -51,7 +53,7 @@ class BrowserHome extends React.Component
 
         return(
             <div className={"BrowserHome BrowserHome" + this.props.theme}>
-                <BrowserBanner theme={this.props.theme} setTheme={this.setTheme} setRoute={this.setRoute} />
+                <BrowserBanner theme={this.props.theme} setTheme={this.setTheme} setRoute={this.setRoute} route={this.state.route} />
 
                 <TransitionGroup>
                     <CSSTransition

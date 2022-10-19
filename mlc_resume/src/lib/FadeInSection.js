@@ -39,7 +39,7 @@ export function FadeInSection(props)
 
     return (
         <div
-            className={ `fade-in-section ${ isVisible ? 'is-visible' : '' }` }
+            className={ `${props.class} ${ isVisible ? 'is-visible' : '' }` }
             ref={ domRef }
         >
             { props.children }
