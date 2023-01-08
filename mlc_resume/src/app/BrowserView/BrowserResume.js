@@ -1,4 +1,22 @@
+/**********************************************************************************************
 
+MLC Resume
+Copyright (C) 2022  Matthew Cline
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+**********************************************************************************************/
 
 import React from 'react';
 
@@ -15,6 +33,7 @@ import { SiJavascript, SiHtml5, SiCss3, SiReact, SiJquery, SiPhp, SiNpm, SiC, Si
 import { getHorizontalScrollFromVerticalPosition, isInViewPort } from '../../lib/Utils';
 import { SmoothScrollEvent } from '../../lib/SmoothScroll';
 import BrowserFooter from './BrowserFooter';
+import ScrollPrompt from '../../lib/ScrollPrompt';
 
 
 
@@ -78,7 +97,8 @@ class BrowserResume extends React.Component
             row2Offset: 6.5
         };
 
-        this.divRef = React.createRef();
+        this.divRef             = React.createRef();
+        this.scrollPromptRef    = React.createRef();
     }
 
     componentDidMount()
@@ -119,6 +139,14 @@ class BrowserResume extends React.Component
                 let offset = getHorizontalScrollFromVerticalPosition( 6.5, row2, 'left', 0.15, 1 );
 
                 this.setState({ row2Offset: offset });
+            }
+        }
+
+        if( this.scrollPromptRef !== undefined )
+        {
+            if( this.scrollPromptRef.current !== undefined )
+            {
+                this.scrollPromptRef.current.notifyScrollChange(e);
             }
         }
     }
@@ -209,6 +237,8 @@ class BrowserResume extends React.Component
                 <div className="BrowserResumeExperience">
                     <FadeInSection class="fade-in-up-long-section">{ Years + " Years of Professional Software Development Experience"}</FadeInSection>
                 </div>
+                {/* NOTE: inputDelay is considerably less due to smoothing animation effect. (5s + inputDelay) */}
+                <ScrollPrompt mouse entryDelay={3} inputDelay={2} ref={this.scrollPromptRef} />
                 <BrowserFooter />
             </div>
         );

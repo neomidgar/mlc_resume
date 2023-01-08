@@ -1,12 +1,30 @@
+/**********************************************************************************************
 
+MLC Resume
+Copyright (C) 2022  Matthew Cline
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+**********************************************************************************************/
 
 .fade-in-section 
 {
     opacity: 0;
     transform: translateY(0vh);
     visibility: hidden;
-    transition: opacity 4000ms ease-out, transform 4000ms ease-out,
-      visibility 4000ms ease-out;
+    transition: opacity 5000ms ease-out, transform 5000ms ease-out,
+      visibility 5000ms ease-out;
     will-change: opacity, transform, visibility;
 }
 
@@ -59,8 +77,8 @@
     opacity: 0;
     transform: translateX(10vh);
     visibility: hidden;
-    transition: opacity 4000ms ease-out, transform 3000ms ease-out,
-      visibility 4000ms ease-out;
+    transition: opacity 5000ms ease-out, transform 4000ms ease-out,
+      visibility 5000ms ease-out;
     will-change: opacity, transform, visibility;
 }
 
@@ -78,8 +96,8 @@
     opacity: 0;
     transform: translateX(-10vh);
     visibility: hidden;
-    transition: opacity 4000ms ease-out, transform 3000ms ease-out,
-      visibility 4000ms ease-out;
+    transition: opacity 5000ms ease-out, transform 4000ms ease-out,
+      visibility 5000ms ease-out;
     will-change: opacity, transform, visibility;
 }
 

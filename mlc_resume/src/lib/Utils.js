@@ -1,7 +1,22 @@
+/**********************************************************************************************
 
+MLC Resume
+Copyright (C) 2022  Matthew Cline
 
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
 
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
 
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+**********************************************************************************************/
 
 export function isInViewPort( el, topOffset, bottomOffset )
 {
@@ -108,5 +123,65 @@ export function clamp( min, max, val )
         console.error(e);
 
         return val;
+    }
+}
+
+const months = 
+[
+    "Jan",
+    "Feb",
+    "Mar",
+    "Apr",
+    "May",
+    "Jun",
+    "Jul",
+    "Aug",
+    "Sep",
+    "Oct",
+    "Nov",
+    "Dec"
+];
+
+export function getMonth( date, format )
+{
+    try
+    {
+        switch( format )
+        {
+            case "mmm":
+                return months[date.getMonth()];
+
+            default:
+                return date.getMonth();
+        }
+    } 
+    catch(e)
+    {
+        console.error(e);
+    }
+}
+
+export function getDate( format )
+{
+    try
+    {
+        const date = new Date();
+
+        switch( format )
+        {
+            case "mmm yyyy":
+            
+            let month = getMonth( date, "mmm" );
+            let year  = date.getFullYear();
+
+            return month + " " + year;
+
+            default:
+                return date;
+        }
+    }
+    catch(e)
+    {
+        console.error(e);
     }
 }
