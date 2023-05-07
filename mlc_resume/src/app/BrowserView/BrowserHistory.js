@@ -24,12 +24,14 @@ import BrowserFooter from "./BrowserFooter";
 
 import './BrowserHistory.scss';
 
-import img_usaf from '../../assets/img/usaf.svg';
-import img_F15 from '../../assets/img/F15.jpg';
-import img_ccaf from '../../assets/img/ccaf.png';
-import img_tb from '../../assets/img/test_bench.png';
-import img_machine from '../../assets/img/mhex.jpg';
+import img_usaf     from '../../assets/img/usaf.svg';
+import img_F15      from '../../assets/img/F15.jpg';
+import img_ccaf     from '../../assets/img/ccaf.png';
+import img_tb       from '../../assets/img/test_bench.png';
+import img_machine  from '../../assets/img/mhex.jpg';
+import img_d6cx     from '../../assets/img/D6C8.png';
 
+const now_src = "https://www.youtube.com/embed/OOthloXLZA0";
 
 // https://commons.wikimedia.org/wiki/File:US_Air_Force_Logo_Solid_Colour.svg (USAF logo ref)
 
@@ -54,15 +56,14 @@ embed you tube video
 
 const times =
 [
-    "Oct 2003",             // enter USAF
-    "Jun 2004 - Oct 2009",  // USAF Responsibilities
-    "Oct 2009",             // exit USAF, CCAF
-    "Feb 2010",             // enter CAT
-    // "Dec 2012",             // BS
-    "Aug 2014",             // Caterpillar Full-time
-    // "Sep 2016",             // MHEX Display Software
-    // "Feb 2019",             // SWL && SSL
-    // getDate("mmm yyyy")     // Present
+    "Oct 2003",                             // enter USAF
+    "Jun 2004 - Oct 2009",                  // USAF Responsibilities
+    "Oct 2009",                             // exit USAF, CCAF
+    "Feb 2010",                             // enter CAT
+    // "Dec 2012",                          // BS
+    "Aug 2014",                             // Caterpillar Full-time
+    "Sep 2016",                             // MHEX Display Software
+    getDate("mmm yyyy") + " (Present)"      // Present
 ];
 
 const imgs =
@@ -71,9 +72,24 @@ const imgs =
     img_F15,
     img_ccaf,
     img_tb,
-    img_machine
-
+    img_machine,
+    img_d6cx,
+    now_src
 ];
+
+const HISTORY_TYPE_IMG = 0;
+const HISTORY_TYPE_MOV = 1;
+
+const types = 
+[
+    HISTORY_TYPE_IMG,
+    HISTORY_TYPE_IMG,
+    HISTORY_TYPE_IMG,
+    HISTORY_TYPE_IMG,
+    HISTORY_TYPE_IMG,
+    HISTORY_TYPE_IMG,
+    HISTORY_TYPE_MOV
+]
 
 const img_classes =
 [
@@ -81,8 +97,9 @@ const img_classes =
     "BrowserHistoryContentImgF15",
     "BrowserHistoryContentImgCcaf",
     "BrowserHistoryContentImgTb",
-    "BrowserHistoryContentImgMachine"
-
+    "BrowserHistoryContentImgMachine",
+    "BrowserHistoryContentImgD6CX",
+    "BrowserHistoryContentNow",
 ];
 
 const oct_2003 = "On 21 October 2003 I was sworn into the United States Air Force. Several weeks later I graduated basic training and " +
@@ -102,16 +119,32 @@ const dec_2012 = "At the end of 2012 I completed my Bachelors of Science degree 
 const aug_2014 = "On Aug 1st 2014 I started as a full-time Caterpillar employee. My primary job role during this time was to take over MHEX machine software from a team in " +
 "located in Japan. I added numerous new features, fixed many bugs, added diagnostic and service tool support, and combined multiple software packages into a single flash file.";
 
+const sep_2016 = "Around September 2016 I was asked to help with some display software that used HTML, CSS, and vanilla JS to deliver its UI. Little did I know at the time, but " +
+"that would start my journey into a full-stack developer."
+
+const display_start = new Date("Sept 2016");
+const display_end   = new Date();
+const display_time  = ((display_end - display_start) / 31556952000).toFixed(0) ;
+
+
+const sep_2016_to_now = "So here we are " + display_time + " years later I am the architect of 4 programs that we utilize React, JS, SASS, CSS, HTML, JSX " +
+"C, C++, WebSockets, lighttpd, Python, and more. I have been heavily invested in automating tedious tasks and build routines to drive consistency " + 
+"between programs. Checkout the video of the MHEX demo of the display."
+
 const texts = 
 [
     oct_2003,
     jun_2004_2009,
     oct_2009,
     feb_2010,
-    aug_2014
+    aug_2014,
+    sep_2016,
+    sep_2016_to_now
 ];
 
 let BrowserHistoryScrollTimeout;
+
+const CIRCLE_MOVE_TIME = 20000;
 
 class BrowserHistory extends React.Component
 {
@@ -128,11 +161,15 @@ class BrowserHistory extends React.Component
     componentDidMount()
     {
         window.addEventListener('wheel', this.wheelEvent );
+
+        this.circleInterval = setInterval( this.moveCircle, CIRCLE_MOVE_TIME );
     }
 
     componentWillUnmount()
     {
         window.removeEventListener('wheel', this.wheelEvent );
+
+        clearInterval( this.circleInterval );
     }
 
     wheelEvent = (e) =>
@@ -155,6 +192,8 @@ class BrowserHistory extends React.Component
                 }
 
                 this.setState({ historyIndex: index });
+
+                this.resetCircleInterval();
             }
             else
             {
@@ -168,45 +207,126 @@ class BrowserHistory extends React.Component
                 }
 
                 this.setState({ historyIndex: index });
+
+                this.resetCircleInterval();
             }
         }, 250 );
 
 
     }
 
+    getCircles = () =>
+    {
+        let content = [];
+
+        for( let i = 0; i < texts.length; i++ )
+        {
+            let styles = 
+            {
+                'left': 5 + (i * 105 / texts.length) + 'vw' //width: 90vw;
+            };
+
+            content.push(<div className="BrowserHistoryTimelineCircle" key={i} style={styles}/>);
+        }
+
+        return content;
+    }
+
+    resetCircleInterval = () =>
+    {
+        clearInterval(this.circleInterval);
+
+        this.circleInterval = setInterval( this.moveCircle, CIRCLE_MOVE_TIME );
+    }
+
+    moveCircle = () =>
+    {
+        let index = this.state.historyIndex;
+
+        index = index + 1;
+
+        if( index > times.length - 1 )
+        {
+            index = 0;
+        }
+
+        this.setState({ historyIndex: index });
+    }
+
     render()
     {
         console.log("render", this.state.historyIndex);
 
-        const time      = times[this.state.historyIndex];
-        const img       = imgs[this.state.historyIndex];
-        const text      = texts[this.state.historyIndex];
-        const imgClass  = img_classes[this.state.historyIndex];
+        const time          = times[this.state.historyIndex];
+        const img           = imgs[this.state.historyIndex];
+        const text          = texts[this.state.historyIndex];
+        const wrapperClass  = img_classes[this.state.historyIndex];
+        const type          = types[this.state.historyIndex];
+        const circles       = this.getCircles();
 
-        const style     = 
+        const style         = 
         {
-            transform: `translateX( ${ this.state.historyIndex * 90 / (times.length -1) }vw)`
+            transform: `translateX( ${ this.state.historyIndex * 105 / (times.length ) }vw)`
         }
 
-        return(
-            <div className="BrowserHistory">
-                <div className="BrowserTimelineWrapper">
-                    <div className="BrowserHistoryTimeLine"></div>
-                    <div className="BrowserHistoryTimeLineContext" style={style}></div>
-                    <div className="BrowserHistoryTimeText">{time}</div>
-                </div>
-                <div className="BrowserHistoryContentWrapper">
-                    <div className="BrowserHistoryContent">
-                        <div className="BrowserHistoryContent2003">
-                            <img className={imgClass} src={img} alt="USAF logo" />
-                            <div className="BrowserHistoryContentText">{text}</div>
+        if( type === HISTORY_TYPE_IMG )
+        {
+            return(
+                <div className="BrowserHistory">
+                    <div className="BrowserTimelineWrapper">
+                        <div className="BrowserHistoryTimeLine"></div>
+                        <div className="BrowserHistoryTimeLineContext" style={style}></div>
+                        <div className="BrowserHistoryTimeText">{time}</div>
+                        <div className="BrowserHistoryTimeCirclesWrapper">
+                            {circles}
                         </div>
                     </div>
-                    <BrowserFooter />
+                    <div className="BrowserHistoryContentWrapper">
+                        <div className="BrowserHistoryContent">
+                            <div>
+                                <img className={wrapperClass} src={img} alt="USAF logo" />
+                                <div className="BrowserHistoryContentText">{text}</div>
+                            </div>
+                        </div>
+                        <BrowserFooter />
+                    </div>
                 </div>
-                
-            </div>
-        );
+            );
+        }
+        else
+        {
+            return(
+                <div className="BrowserHistory">
+                    <div className="BrowserTimelineWrapper">
+                        <div className="BrowserHistoryTimeLine"></div>
+                        <div className="BrowserHistoryTimeLineContext" style={style}></div>
+                        <div className="BrowserHistoryTimeText">{time}</div>
+                        <div className="BrowserHistoryTimeCirclesWrapper">
+                            {circles}
+                        </div>
+                    </div>
+                    <div className="BrowserHistoryContentWrapper">
+                        <div className="BrowserHistoryContent">
+                            <div className={wrapperClass}>
+                                <iframe 
+                                    width="608"
+                                    height="342"
+                                    src={img} 
+                                    title="YouTube video player" 
+                                    frameborder="0" 
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                    allowfullscreen="true"
+                                />
+                                
+                            </div>
+                            <div className="BrowserHistoryContentText">{text}</div>
+                        </div>
+                        <BrowserFooter />
+                    </div>
+                </div>
+            );
+        }
+        
     }
 }
 
