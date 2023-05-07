@@ -1,0 +1,111 @@
+/**********************************************************************************************
+
+MLC Resume
+Copyright (C) 2022  Matthew Cline
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+**********************************************************************************************/
+
+.fade-in-section 
+{
+    opacity: 0;
+    transform: translateY(0vh);
+    visibility: hidden;
+    transition: opacity 5000ms ease-out, transform 5000ms ease-out,
+      visibility 5000ms ease-out;
+    will-change: opacity, transform, visibility;
+}
+
+.fade-in-section.is-visible 
+{
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+    overflow: visible;
+}
+
+.fade-in-up-section 
+{
+    opacity: 0;
+    transform: translateY(5vh);
+    visibility: hidden;
+    transition: opacity 2000ms ease-out, transform 1000ms ease-out,
+      visibility 2000ms ease-out;
+    will-change: opacity, transform, visibility;
+}
+
+.fade-in-up-section.is-visible 
+{
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+    overflow: visible;
+}
+
+.fade-in-up-long-section 
+{
+    opacity: 0;
+    transform: translateY(5vh);
+    visibility: hidden;
+    transition: opacity 5000ms ease-out, transform 3000ms ease-out,
+      visibility 2000ms ease-out;
+    will-change: opacity, transform, visibility;
+}
+
+.fade-in-up-long-section.is-visible 
+{
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+    overflow: visible;
+}
+
+.fade-in-left-section
+{
+    opacity: 0;
+    transform: translateX(10vh);
+    visibility: hidden;
+    transition: opacity 5000ms ease-out, transform 4000ms ease-out,
+      visibility 5000ms ease-out;
+    will-change: opacity, transform, visibility;
+}
+
+.fade-in-left-section.is-visible 
+{
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+    overflow: visible;
+    display: flex;
+}
+
+.fade-in-right-section
+{
+    opacity: 0;
+    transform: translateX(-10vh);
+    visibility: hidden;
+    transition: opacity 5000ms ease-out, transform 4000ms ease-out,
+      visibility 5000ms ease-out;
+    will-change: opacity, transform, visibility;
+}
+
+.fade-in-right-section.is-visible 
+{
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+    overflow: visible;
+    display: flex;
+}

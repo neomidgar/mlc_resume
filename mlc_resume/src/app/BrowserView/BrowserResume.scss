@@ -1,0 +1,301 @@
+/**********************************************************************************************
+
+MLC Resume
+Copyright (C) 2022  Matthew Cline
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+**********************************************************************************************/
+
+@import "../BrowserGlobal.scss";
+
+.BrowserResume
+{
+    position: absolute;
+    top: 10vh;
+    width: 100vw;
+    height: 90vh;
+    overflow: hidden;
+    touch-action: none;
+}
+
+.BrowserResumeMeWrapper
+{
+    float: left;
+    width: 49vw;
+    height: 50vh;
+}
+
+.BrowserResumeMe
+{
+    margin-top: 15vw;
+    margin-left: 10vw;
+    display: inline-block;
+    width: 40vw;
+    height: 10vh;
+    font-size: 5em;
+    animation: AnimResMe ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    opacity: 0;
+    text-shadow: 3px 5px 2px #000000;
+}
+
+@keyframes AnimResMe 
+{
+    0% 
+    {
+        opacity: 0;
+        margin-top: 15vw;
+    }
+    100% 
+    {
+        opacity: 1;
+        margin-top: 10vw;
+     }
+}
+
+.BrowserResumeAbout
+{
+    margin-top: 15vw;
+    margin-left: 10vw;
+    display: inline-block;
+    width: 40vw;
+    height: 15vh;
+    font-size: 2.5em;
+    animation: AnimResAbout ease 2s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 1s;
+    opacity: 0;
+    text-shadow: 3px 5px 2px #000000;
+}
+
+@keyframes AnimResAbout 
+{
+    0% 
+    {
+        opacity: 0;
+        margin-top: 5vh;
+    }
+    100% 
+    {
+        opacity: 1;
+        margin-top: 0vh;
+     }
+}
+
+.BrowserResumeStatement
+{
+    float: left;
+    width: 40vw;
+    height: 40vh;
+    margin-top: 25vh;
+    margin-left: 5vw;
+    margin-right: 5vw;
+    font-size: 2em;
+    animation: AnimResStatement ease 1.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+    animation-delay: 1.5s;
+    opacity: 0;
+    text-shadow: 3px 5px 2px #000000;
+}
+
+@keyframes AnimResStatement 
+{
+    0% 
+    {
+        opacity: 0;
+        margin-left: 15vh;
+    }
+    100% 
+    {
+        opacity: 1;
+        margin-left: 5vh;
+     }
+}
+
+.BrowserResumeSkills
+{
+    float: left;
+    margin-top: 40vh;
+    width: 100vw;
+    height: 100vh;
+}
+
+.BrowserResumeSkillsThemeDark
+{
+    background-color: $background-color-offset-dark;
+}
+
+.BrowserResumeSkillsThemeLight
+{
+    background-color: $background-color-offset-light;
+}
+
+.BrowserResumeSkillsWrapper
+{
+    float: left;
+    width: 48vw;
+}
+
+.BrowserResumeSkillsText
+{
+    float: left;
+    margin-top: 5vh;
+    margin-left: 7.5vw;
+    width: 40vw;
+    font-size: 2em;
+    overflow: visible;
+}
+
+.BrowserResumeSkillsTextThemeDark
+{
+    color: blue;
+}
+
+.BrowserResumeSkillsProText
+{
+    float: left;
+    margin-top: 5vh;
+    margin-left: 3vw;
+    width: 40vw;
+    height: 10vh;
+    line-height: 5vh;
+    font-size: 2em;
+    overflow: visible;
+    color:#ff422a;
+}
+
+.BrowserResumeSkillsText2
+{
+    float: left;
+    margin-top: 5vh;
+    margin-left: 7.5vw;
+    width: 38vw;
+    height: 20vh;
+    font-size: 2em;
+}
+
+.BrowserResumeSkillsImgWrapper
+{
+    position: relative;
+    left: 48vw;
+    top: -110vh;
+    width: 50vw;
+    z-index: 1;
+    box-shadow: 13px 21px 50px -4px rgba(0,0,0,0), 9px -9px 16px -2px rgba(0,0,0,0.86);
+    opacity: 0;
+    transition: opacity 0.5s linear;  
+}
+
+.BrowserResumeSkillsImgWrapperAnimation
+{
+    opacity: 1;
+}
+
+.BrowserResumeSkillsImg
+{
+    max-width: 100%;
+    height: auto;
+}
+
+.BrowserResumeSkillsIconRow1
+{
+    margin-top: 62.5vh;
+    width: 100vw;
+    height: 15vh;
+    transition: transform 2s ease-out;
+}
+
+.BrowserResumeSkillsIconRow2
+{
+    margin-top: 5vh;
+    width: 100vw;
+    height: 15vh;
+    transition: transform 2s ease-out;
+}
+
+.ResumeSkillIcon
+{
+    float: left;
+    margin-left: 7.5vw;
+    width: 5vw;
+    height: 5vw;
+}
+
+.BrowserResumeSoftSkillsWrapper
+{
+    margin-top: -40vh;
+    width: 100vw;
+    height: fit-content;
+}
+
+.BrowserResumeContainer
+{
+    display: flex;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.BrowserResumeTeamworkImg
+{
+    margin-left: 5vw;
+    max-width: 44.5vw;
+    height: auto;
+    box-shadow: 13px 21px 50px -4px rgba(0,0,0,0), 9px -9px 16px -2px rgba(0,0,0,0.86);
+}
+
+.BrowserResumeTeamworkText
+{
+    width: 44.5vw;
+    height: inherit;
+    text-align: center;
+    font-size: 4em;
+    margin: auto;
+    overflow: visible;
+    text-shadow: 3px 5px 2px #000000;
+}
+
+.BrowserResumeIndependentImg
+{
+    max-width: 44.5vw;
+    height: auto;
+    box-shadow: 13px 21px 50px -4px rgba(0,0,0,0), 9px -9px 16px -2px rgba(0,0,0,0.86);
+}
+
+.BrowserResumeIndependentText
+{
+    margin-left: 5vw;
+    width: 50vw;
+    height: inherit;
+    text-align: center;
+    font-size: 4em;
+    margin: auto;
+    overflow: visible;
+    text-shadow: 3px 5px 2px #000000;
+}
+
+.BrowserResumeExperience
+{
+    margin-top: 5vh;
+    width: 100vw;
+    height: 50vh;
+    line-height: 50vh;
+    text-align: center;
+    font-size: 4em;
+    background-color: #ff422a;
+    text-shadow: 3px 3px 3px #000000;
+}

@@ -1,0 +1,196 @@
+/**********************************************************************************************
+
+MLC Resume 
+Copyright (C) 2022  Matthew Cline
+
+This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+**********************************************************************************************/
+
+.BrowserHistory
+{
+    position: absolute;
+    top: 10vh;
+    width: 100vw;
+    height: 90vh;
+    overflow: hidden;
+    touch-action: none;
+}
+
+.BrowserTimelineWrapper
+{
+    position: absolute;
+    top: 10vh;
+    height: 10vh;
+    width: 100vw;
+    overflow: visible;
+}
+
+.BrowserHistoryTimeLine
+{
+    position: absolute;
+    top: 4vh;
+    left: 5vw;
+    height: 0.25vh;
+    width: 90vw;
+    background-color: white;
+}
+
+.BrowserHistoryTimeLineContext
+{
+    position: absolute;
+    top: 3.25vh;
+    left: 5vw;
+    width: 1vw;
+    height: 1vw;
+    border-radius:50%;
+    background-color: #fff;
+    animation: BrowserHistoryTimeLineContextAnimation 1s ease-in-out infinite alternate;
+    transition: transform ease-in-out 2s;
+}
+
+@keyframes BrowserHistoryTimeLineContextAnimation 
+{
+    from 
+    {
+        box-shadow: 0 0 .1vw #ff422a, 0 0 .2vw #ff422a, 0 0 .3vw #ff422a, 0 0 .4vw #ff422a, 0 0 .5vw #ff422a, 0 0 .6vw #ff422a, 0 0 .7vw #ff422a;
+    }
+    to 
+    {
+        box-shadow: 0 0 .2vw #ff422a, 0 0 .4vw #ff422a, 0 0 .6vw #ff422a, 0 0 .7vw #ff422a, 0 0 1vw #ff422a, 0 0 1.2vw #ff422a, 0 0 1.4vw #ff422a;
+    }
+}
+
+.BrowserHistoryTimeText
+{
+    position:absolute;
+    top: 8vh;
+    left: 35vw;
+    width: 30vw;
+    text-align: center;
+    font-size: 3em;
+    text-shadow: 3px 5px 2px #000000;
+    overflow: visible;
+}
+
+.BrowserHistoryTimeCirclesWrapper
+{
+    position: absolute;
+    top: 0vh;
+    height: 10vh;
+    width: 100vw;
+}
+
+.BrowserHistoryTimelineCircle
+{
+    position: absolute;
+    top: 3.25vh;
+    left: 5vw;
+    width: 1vw;
+    height: 1vw;
+    border-radius:50%;
+    background-color: #fff;
+}
+
+.BrowserHistoryContentWrapper
+{
+    position: absolute;
+    top: 20vh;
+    width: 100vw;
+    height: 80vh;
+}
+
+.BrowserHistoryContent
+{
+    width: 100vw;
+    height: 40vh;
+}
+
+.BrowserHistoryContentUSAF
+{
+    position: absolute;
+    left: 8.75vw;
+    top: 2.5vh;
+    width: 22.5vw;
+}
+
+.BrowserHistoryContentImgF15
+{
+    position: absolute;
+    left: 5vw;
+    top: 0vh;
+    height: 35vh;
+}
+
+.BrowserHistoryContentImgCcaf
+{
+    position: absolute;
+    left: 10vw;
+    top: 2.5vh;
+    height: 35vh;
+}
+
+.BrowserHistoryContentImgTb
+{
+    position: absolute;
+    left: 10vw;
+    top: 0vh;
+    height: 35vh;
+}
+
+.BrowserHistoryContentImgMachine
+{
+    position: absolute;
+    left: 10vw;
+    top: 0vh;
+    height: 35vh;
+}
+
+.BrowserHistoryContentImgD6CX
+{
+    position: absolute;
+    left: 3vw;
+    top: 0vh;
+    height: 35vh;
+    width: 35vw;
+}
+
+.BrowserHistoryContentNow
+{
+    position: absolute;
+    left: 5vw;
+    top: 0vh;
+    height: 35vh;
+    width: 35vw;
+}
+
+.BrowserHistoryContentText
+{
+    position: absolute;
+    left: 40vw;
+    top: 5vh;
+    height: 30vh;
+    line-height: 5vh;
+    width: 50vw;
+    font-size: 2.5em;
+    text-align: justify;
+    text-shadow: 3px 5px 2px #000000;
+    vertical-align: middle;
+}
+
+.BrowserHistoryContentUSAF
+{
+    max-width: 100%;
+    height: auto;
+}
